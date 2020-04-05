@@ -1,4 +1,4 @@
-import Home from "../views/Home";
+import Home from "../pages/Home";
 import Login from "../pages/Login";
 
 const website = [
