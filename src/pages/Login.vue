@@ -1,23 +1,21 @@
 <template>
-    <v-container fluid class="lighten-5 bith-bg" style="height: 100%">
-        <v-col>
-
-        </v-col>
+    <v-container fluid class="lighten-5 bith-bg pa-0" style="height: 100%">
         <v-row class="bith-logo">
-            <v-col align="center"
+            <v-col class="ma-auto"
+                   align="center"
                    justify="center"
-                   md="6"
-                   offset-md="3"
             >
                 <v-img src="../assets/images/BITH.png" width="300"></v-img>
             </v-col>
         </v-row>
-        <v-footer class="pb-5 offset-md-3 col-md-6"
-                  style="background-color: unset"
+        <v-footer class="bith-footer"
                   padless
                   absolute
         >
-            <v-col>
+            <v-col sm="8"
+                   md="6"
+                   lg="4"
+            >
                 <v-row>
                     <v-col>
                         <v-img src="../assets/images/SignUpWithSocial.png"></v-img>
@@ -94,16 +92,17 @@
         text-decoration: none;
     }
 
-    .login-area {
-        bottom: 45%;
-    }
-
     .bith-logo {
-        margin-top: 0%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 100%;
+        height: 50%;
     }
 
-    @media (max-width: 600px)
-     .bith-logo {
-         margin-top: 45%;
-     }
+    .bith-footer {
+        background: unset;
+        justify-content: center;
+    }
 </style>
