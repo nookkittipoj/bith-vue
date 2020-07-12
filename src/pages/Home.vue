@@ -5,6 +5,11 @@
             <span>
                 Category
             </span>
+                <v-btn @click="done()">success</v-btn>
+                <v-btn @click="warn()">warn</v-btn>
+                <v-btn @click="oops()">fail</v-btn>
+                <v-btn @click="loadItem()">load</v-btn>
+                <v-btn @click="removeItem()">remove</v-btn>
             </v-container>
         </v-layout>
         <v-layout class="category-slide"
@@ -45,41 +50,110 @@
             </div>
         </v-layout>
         <v-layout wrap>
-            <v-flex v-for="i in 10"
-                    :key="i"
+            <v-flex v-for="(card, index) in cards"
+                    :key="index"
                     class="pa-1 xs6 md4 lg3">
                 <v-card class="bith-card"
                 >
                     <v-img
                             class="white--text align-end"
+                            width="300px"
                             height="200px"
                             src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
                     >
                     </v-img>
 
                     <v-card-text class="text--primary">
-                        <p class="text-left">Sed ut perspiciatis unde omnis</p>
+                        <p class="text-left">{{ card.name }}</p>
                         <v-layout justify-space-between>
-                        <span>
-                            23:00:01
-                        </span>
-                            <span>
-                            <b>500</b>THB
-                        </span>
+                            <span>{{ card.time }}</span>
+                            <span><b>{{ card.price }}</b>THB</span>
                         </v-layout>
                     </v-card-text>
                 </v-card>
             </v-flex>
         </v-layout>
+        <v-layout wrap v-if="loadingGrid">
+            <v-flex v-for="i in 4"
+                    :key="i"
+                    class="pa-1 xs6 md4 lg3">
+                <v-card class="bith-card animated-background"
+                >
+                </v-card>
+            </v-flex>
+        </v-layout>
+
+        <bith-confirm-dialog :type="type"
+                             :active="dialog"
+                             :content="content"
+                             @close="onClose"
+                             @accept="onConfirm"
+                             persistent
+        >
+        </bith-confirm-dialog>
+
     </v-container>
 </template>
 
 <script>
+    import BithConfirmDialog from "../components/BithConfirmDialog";
+
     export default {
         name: "Home",
+        components: {BithConfirmDialog},
         data() {
-            return {}
+            return {
+                type: 'success',
+                dialog: false,
+                content: 'Your current bid is 560.',
+                cards: [],
+                loadingGrid: false,
+            }
         },
+        created() {
+        },
+        methods: {
+            loadItem() {
+                this.loadingGrid = true;
+                setTimeout(() => {
+                    for (let i = 1; i <= 4; i++) {
+                        this.cards.push({
+                            imgSrc: 'https://cdn.vuetifyjs.com/images/cards/docks.jpg',
+                            name: 'Sed ut perspiciatis unde omnis',
+                            time: '23:00:' + (this.cards.length + 1),
+                            price: '500'
+                        })
+                    }
+                    this.loadingGrid = false;
+                }, 3000)
+            },
+            removeItem() {
+                for (let i = 1; i <= 4; i++) {
+                    this.cards.splice(0,1)
+                }
+            },
+            onClose(val) {
+                this.dialog = val
+            },
+            onConfirm() {
+                this.dialog = false
+            },
+            done() {
+                this.type = 'success'
+                this.dialog = true;
+                this.content = `Your current bid is 560.`;
+            },
+            oops() {
+                this.type = 'danger'
+                this.dialog = true;
+                this.content = `560 were outbid by another user.`;
+            },
+            warn() {
+                this.type = 'warn'
+                this.dialog = true;
+                this.content = `You will <b>CANNOT</b> cancel your bid, must contact vendor directly.`;
+            }
+        }
     }
 </script>
 

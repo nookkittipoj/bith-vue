@@ -1,13 +1,28 @@
+@font-face {
+  font-family: "CSPraKas";
+  src:  url('../fonts/CSPraKas.otf') format('opentype')
+}
+
+@font-face {
+  font-family: "Roboto";
+  src:  url('../fonts/Roboto-Regular.ttf') format('truetype')
+}
+
 .footer {
   background: linear-gradient(0.68deg, #40C4B0 64.04%, #8DE5D8 126.4%);
 }
 
 .bith-bg {
-  background: linear-gradient(351.61deg, #40C4B0 27.94%, #8DE5D8 113.99%);
+  //background: linear-gradient(351.61deg, #40C4B0 27.94%, #8DE5D8 113.99%);
+  background-image: url('../../assets/images/1920x1200.jpg');
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  font-family: Roboto, CSPraKas;
 }
 
 .bith-font {
-  font-size: 13px;
+  font-size: 14px;
   color: #40C4B0 !important;
 }
 
@@ -48,4 +63,48 @@
   .category-menu:not(:last-child) {
     margin-right: 0.25rem;
   }
+}
+
+
+/**
+loader session.
+ */
+@-webkit-keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0
+  }
+  100% {
+    background-position: 468px 0
+  }
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0
+  }
+  100% {
+    background-position: 468px 0
+  }
+}
+
+.animated-background {
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-name: placeHolderShimmer;
+  animation-name: placeHolderShimmer;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  background: #eeeeee;
+  background: -webkit-gradient(linear, left top, right top, color-stop(8%, #eeeeee), color-stop(18%, #dddddd), color-stop(33%, #eeeeee));
+  background: -webkit-linear-gradient(left, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  -webkit-background-size: 800px 104px;
+  background-size: 800px 104px;
+  width: 300px;
+  height: 300px;
+  position: relative;
 }

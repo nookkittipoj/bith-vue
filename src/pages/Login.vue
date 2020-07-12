@@ -5,7 +5,7 @@
                    align="center"
                    justify="center"
             >
-                <v-img src="../assets/images/BITH.png" width="300"></v-img>
+                <v-img src="../assets/images/BITH.png" width="180"></v-img>
             </v-col>
         </v-row>
         <v-footer class="bith-footer"
@@ -17,45 +17,48 @@
                    lg="4"
             >
                 <v-row>
-                    <v-col>
+                    <v-col class="padding-border" >
                         <v-img src="../assets/images/SignUpWithSocial.png"></v-img>
                     </v-col>
                 </v-row>
                 <v-row align="center"
                        justify="space-around">
                     <v-col>
-                        <v-btn fab class="mx-3 my-5">
-                            <v-img src="../assets/images/line.png" width="56" height="56"></v-img>
+                        <v-btn text large class="lineBtn mx-2 my-5">
                         </v-btn>
-                        <v-btn fab class="mx-3 my-5">
-                            <v-img src="../assets/images/facebook.png" width="56" height="56"></v-img>
+                        <v-btn text large class="facebookBtn my-5">
                         </v-btn>
-                        <v-btn fab class="mx-3 my-5">
-                            <v-img src="../assets/images/google.png" width="56" height="56"></v-img>
+                        <v-btn text large class="googleBtn mx-2 my-5">
                         </v-btn>
                     </v-col>
                 </v-row>
-                <v-row>
+                <v-row >
                     <v-col align="center"
                            justify="center"
+                           class="padding-border"
                     >
                         <v-btn class="block-radius"
                                outlined
                                block
+                               x-large
                                color="white"
+                               style="font-weight: bolder; font-size: 14px"
                         >
                             register with email
                         </v-btn>
                     </v-col>
                 </v-row>
-                <v-row>
+                <v-row >
                     <v-col align="center"
                            justify="center"
+                           class="padding-border"
                     >
                         <v-btn class="bith-font block-radius"
                                block
                                color="white"
                                @click="loader = 'loading'"
+                               x-large
+                               style="font-weight: bolder; font-size: 14px"
                         >
                             log in
                         </v-btn>
@@ -83,6 +86,10 @@
 </script>
 
 <style scoped>
+    .padding-border{
+        padding: 0.5rem 3rem;
+    }
+
     .block-radius {
         border-radius: 6px;
     }
@@ -104,5 +111,19 @@
     .bith-footer {
         background: unset;
         justify-content: center;
+        height: 60%;
+    }
+
+    .lineBtn {
+        background-image: url('../assets/images/rec_line.png');
+        background-size: 100%;
+    }
+    .facebookBtn {
+        background-image: url('../assets/images/rec_fb.png');
+        background-size: 100%;
+    }
+    .googleBtn {
+        background-image: url('../assets/images/rec_google.png');
+        background-size: 100%;
     }
 </style>
