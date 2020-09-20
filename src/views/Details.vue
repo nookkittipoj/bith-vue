@@ -122,7 +122,9 @@
         </v-flex>
       </v-layout>
 
-      <v-expansion-panels class="mb-3">
+      <v-expansion-panels
+          v-if="product.bidding_histories.length > 0"
+          class="mb-3">
         <v-expansion-panel>
           <v-expansion-panel-header>
             <v-chip
@@ -161,7 +163,9 @@
         </v-expansion-panel>
       </v-expansion-panels>
 
-      <v-expansion-panels class="mb-3">
+      <v-expansion-panels
+          v-if="product.description"
+          class="mb-3">
         <v-expansion-panel>
           <v-expansion-panel-header>
             <v-chip
