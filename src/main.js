@@ -4,8 +4,11 @@ import vuetify from "./plugins/vuetify";
 import router from './router'
 import store from './store'
 import './assets/styles/bith-theme.scss'
+import * as moment from "moment";
+import Lightbox from 'vue-easy-lightbox'
 Vue.config.productionTip = false
-
+Vue.prototype.$moment = moment;
+Vue.use(Lightbox)
 new Vue({
   vuetify,
   router,

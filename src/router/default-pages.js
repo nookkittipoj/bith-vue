@@ -1,11 +1,18 @@
 import Home from "../pages/Home";
 import Login from "../pages/Login";
+import Details from "@/views/Details";
 
 const website = [
     {
         path: '/',
         name: 'Home',
         component: Home
+    },
+    {
+        path: '/details',
+        name: 'Details',
+        props: true,
+        component: Details
     },
     {
         path: '/about',
